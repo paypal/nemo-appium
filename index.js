@@ -8,29 +8,26 @@ module.exports.setup = function (nemo, cb) {
     ar(4723, function (success) {
         if (success) {
             console.log("Appium is running, move on!");
-            cb(null);
+            cb(null, 'appium already running');
             // run test
         } else {
             console.log("Appium is not running, exec appium &");
             //start it
             var appiumPath = path.resolve(__dirname, 'node_modules/.bin/appium');
             var appiumProcess = cp.execFile(appiumPath, function (err, stdout, stderr) {
-                (err) ? console.error('err', err) : null;
-                (stdout) ? console.log('stdout', stdout) : null;
-                (stderr) ? console.error('stdout', stderr) : null;
+                //(err) ? console.error('err', err) : null;
+                //(stdout) ? console.log('stdout', stdout) : null;
+                //(stderr) ? console.error('stdout', stderr) : null;
             });
-            //appiumProcess.stdout.on('data', function (data) {
-            //    console.log('stdout: ' + data);
-            //
-            //});
             nemo.appium = {
                 process: appiumProcess
             };
-            cb(null, 'started appium process');
-            //setTimeout(function () {
-            //    appiumProcess.kill();
-            //    cb(null, 'kilt');
-            //}, 10000);
+            appiumProcess.stdout.on('data', function (data) {
+                if (data.indexOf('started') !== -1 && data.indexOf('4723') !== -1) {
+                    cb(null, 'started appium process');
+                }
+            });
+
         }
     });
 };
