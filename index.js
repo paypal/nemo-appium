@@ -14,7 +14,7 @@ module.exports.setup = function (nemo, cb) {
             console.log("Appium is not running, exec appium &");
             //start it
             var appiumPath = path.resolve(__dirname, 'node_modules/.bin/appium');
-            var appiumProcess = cp.execFile(appiumPath, function (err, stdout, stderr) {
+            var appiumProcess = cp.exec('appium', function (err, stdout, stderr) {
                 //(err) ? console.error('err', err) : null;
                 //(stdout) ? console.log('stdout', stdout) : null;
                 //(stderr) ? console.error('stdout', stderr) : null;

@@ -23,7 +23,6 @@
   },
   "homepage": "https://github.com/paypal/nemo-appium#readme",
   "dependencies": {
-    "appium": "~1.4.11",
     "appium-running": "^0.1.3"
   }
 }
