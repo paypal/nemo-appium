@@ -8,7 +8,7 @@ module.exports.setup = function (nemo, cb) {
     ar(4723, function (success) {
         if (success) {
             console.log("Appium is running, move on!");
-            cb(null, 'appium already running');
+            cb(null);
             // run test
         } else {
             console.log("Appium is not running, exec appium &");
@@ -24,7 +24,7 @@ module.exports.setup = function (nemo, cb) {
             };
             appiumProcess.stdout.on('data', function (data) {
                 if (data.indexOf('started') !== -1 && data.indexOf('4723') !== -1) {
-                    cb(null, 'started appium process');
+                    cb(null);
                 }
             });
 
