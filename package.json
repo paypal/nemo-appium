@@ -1,6 +1,6 @@
 {
   "name": "nemo-appium",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Start an appium server during nemo startup, kill upon driver.quit",
   "main": "index.js",
   "scripts": {
