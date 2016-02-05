@@ -1,13 +1,15 @@
 var naPlugin = require('../index');
 var nemo = {};
-naPlugin.setup(nemo, function (err, out) {
+///Users/medelman/.nvm/current/bin/appium
+var appiumPath = process.env.APPIUM_PATH;
+
+naPlugin.setup(appiumPath, nemo, function (err, out) {
     if (err) {
         return console.error(err);
     }
-    console.log(out);
     setTimeout(function () {
-        nemo.appium.process.kill();
+        nemo.appium && nemo.appium.process && nemo.appium.process.kill();
         console.log('things seem fine but somebody should write better unit tests');
-
-    }, 10000);
+        //process.exit();
+    }, 1000);
 });
