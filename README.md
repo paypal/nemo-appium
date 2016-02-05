@@ -8,6 +8,7 @@ plugin (see: https://github.com/paypal/nemo#plugins):
 ```
 "appium": {
       "module": "nemo-appium",
+      "priority": 99,
       "arguments": ["/Users/medelman/.nvm/current/bin/appium"]
     }
 ```
@@ -22,7 +23,7 @@ The plugin adds `nemo.appium.process` and `nemo.appium.kill`.
 **nemo.appium.process** is a reference to the 
 [ChildProcess](https://nodejs.org/api/child_process.html#child_process_class_childprocess) object started for `appium`.
 
-**nemo.appium.kill** is a function which wraps `ChildProcess#kill`.
+**nemo.appium.kill** is a function which wraps `ChildProcess#kill` for the appium process.
 
 
 
