@@ -49,19 +49,3 @@ module.exports.setup = function (apath, nemo, cb) {
     });
 };
 
-
-//var eventInterval = setInterval(function () {
-//    if (nemo && nemo.driver && nemo.driver.controlFlow) {
-//        clearInterval(eventInterval);
-//        console.log('clearing eventInterval');
-//        nemo.driver.controlFlow().on('scheduleTask', function (task) {
-//            driver.getSession().then(function (session) {
-//                if (session && task !== undefined && task.indexOf('WebDriver.quit') !== -1) {
-//                    //kill the appium server
-//                    nemo.appium.process.kill();
-//                }
-//
-//            });
-//        });
-//    }
-//});

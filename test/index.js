@@ -10,6 +10,5 @@ naPlugin.setup(appiumPath, nemo, function (err, out) {
     setTimeout(function () {
         nemo.appium && nemo.appium.process && nemo.appium.process.kill();
         console.log('things seem fine but somebody should write better unit tests');
-        //process.exit();
     }, 1000);
 });

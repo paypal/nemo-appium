@@ -2,7 +2,8 @@
 
 ## Usage
 
-Add to your nemo plugins. Be sure to send the path to your appium executable:
+Add to your nemo plugins. Be sure to send the path to your appium executable. Be sure to register it as a "pre-driver" 
+plugin (see: https://github.com/paypal/nemo#plugins):
 
 ```
 "appium": {
@@ -12,6 +13,12 @@ Add to your nemo plugins. Be sure to send the path to your appium executable:
 ```
 
 If you don't have appium running, the plugin will start the appium server.
+
+The plugin uses `child_process.exec` to launch the server. It will add a reference to the ChildProcess object as:
+`nemo.appium.process`
+
+This gives the ability to manage the process. You may want to manually kill the process when you know you're done 
+with it.
 
 ## Log/debug
 
