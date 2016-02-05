@@ -14,11 +14,17 @@ plugin (see: https://github.com/paypal/nemo#plugins):
 
 If you don't have appium running, the plugin will start the appium server.
 
-The plugin uses `child_process.exec` to launch the server. It will add a reference to the ChildProcess object as:
-`nemo.appium.process`
+### Interface
 
-This gives the ability to manage the process. You may want to manually kill the process when you know you're done 
-with it.
+The plugin adds `nemo.appium.process` and `nemo.appium.kill`.
+
+
+**nemo.appium.process** is a reference to the 
+[ChildProcess](https://nodejs.org/api/child_process.html#child_process_class_childprocess) object started for `appium`.
+
+**nemo.appium.kill** is a function which wraps `ChildProcess#kill`.
+
+
 
 ## Log/debug
 

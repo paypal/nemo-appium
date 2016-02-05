@@ -31,7 +31,11 @@ module.exports.setup = function (apath, nemo, cb) {
                 }
             });
             nemo.appium = {
-                process: appiumProcess
+                process: appiumProcess,
+                kill: function () {
+                    log("attempt to kill appium");
+                    appiumProcess.kill();
+                }
             };
             appiumProcess.stdout.on('data', function (data) {
                 if (data.indexOf('Appium REST http interface listener started on 0.0.0.0:4723') !== -1) {
@@ -48,4 +52,6 @@ module.exports.setup = function (apath, nemo, cb) {
         }
     });
 };
+
+
 
