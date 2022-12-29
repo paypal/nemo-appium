@@ -8,6 +8,11 @@ var error = debug('nemo-appium:error');
 
 
 module.exports.setup = function (apath, nemo, cb) {
+    // validate apath since we are going to execute it
+    // should end in appium, and contain no spaces
+    if (apath.indexOf('appium') !== apath.length - 6 || apath.indexOf(' ') > -1) {
+        return cb(new Error('Invalid path to appium executable'))
+    }
     var once = function () {
         cb.apply(null, arguments);
         once = function () {
